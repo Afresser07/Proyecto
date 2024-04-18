@@ -1,13 +1,13 @@
-package co.ucentral.vinni.prueba;
+package co.ucentral.sistema.Proyecto_Estudiantes;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PruebaApplication {
+public class ProyectoEstudiantesApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PruebaApplication.class, args);
+		SpringApplication.run(ProyectoEstudiantesApplication.class, args);
 	}
 
 	
