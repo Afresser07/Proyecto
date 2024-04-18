@@ -1,12 +1,13 @@
-package co.ucentral.vinni.prueba;
+package co.ucentral.sistema.Proyecto_Estudiantes;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class PruebaApplicationTests {
+class ProyectoEstudiantesApplicationTests {
 
 	@Test
 	void contextLoads() {
 	}
+
 }
