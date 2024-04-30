@@ -1,13 +1,14 @@
 package co.ucentral.sistema.Proyecto_Estudiantes.entidades;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import java.io.Serializable;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
-import javax.persistence.Table;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -16,17 +17,17 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "profesores")
-public class Profesor {
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_PROFESOR")
-    @SequenceGenerator(name="SEQ_PROFESOR",sequenceName = "SEQ_PROFESOR",allocationSize = 1)
-    @Column(name="CEDULA_PROFESOR",nullable = false)
-    private long cedula;
+@Table(name = "Profesores")
 
-    @Column(name="NOMBRE_PROFESOR",nullable = false)
+public class Profesor implements Serializable{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="cedulaProfesor", nullable =false )
+    private Long cedula;
+
+    @Column(name="nombreProfesor", nullable =false )
     private String nombre;
 
-    @Column(name="EMAIL_PROFESOR",nullable = false)
+    @Column(name="emailProfesor", nullable =false, unique=true)
     private String email;
 }

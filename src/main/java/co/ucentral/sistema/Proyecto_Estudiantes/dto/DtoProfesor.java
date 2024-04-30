@@ -9,9 +9,8 @@ import lombok.ToString;
 @NoArgsConstructor
 @Data
 @ToString
-public class ProfesorDto {
-    private Long id;
-    private int cedula;
+public class DtoProfesor {
+    private Long cedula;
     private String nombre;
     private String email;
 }
