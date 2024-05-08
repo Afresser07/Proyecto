@@ -17,11 +17,6 @@ public class ControladorEstudiante {
     @Autowired
     private OperacionesEstudiante operacionesEstudiante;
 
-    @GetMapping({"/"})
-    public String prueba(Model modelo) {
-        return "prueba";
-    }
-
     @GetMapping("/registroEstudiante")
     public String mostrarFormularioEstudiante(Model modelo) {
         Estudiante estudiante = new Estudiante();
