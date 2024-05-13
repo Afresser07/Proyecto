@@ -7,4 +7,6 @@ import jakarta.persistence.Table;
 @Table(name= "asignaturas")
 public class Asignatura {
     
+    private int codigo;
+    private String nombre;
 }
