@@ -1,7 +1,5 @@
 package co.ucentral.sistema.Proyecto_Estudiantes.entidades;
 
-import java.io.Serializable;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
@@ -18,18 +16,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Profesores")
+@Table(name = "estudiantes")
 
-public class Profesor implements Serializable{
+public class Estudiante {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_PROF_REL")
-    @SequenceGenerator(name = "SEQ_PROF_REL", sequenceName = "SEQ_PROF_REL", allocationSize = 1)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ESTU_REL")
+    @SequenceGenerator(name = "SEQ_ESTU_REL", sequenceName = "SEQ_ESTU_REL", allocationSize = 1)
     @Column(name="cedulaEstudiante", nullable =false )
     private int cedula;
 
-    @Column(name="nombreProfesor", nullable =false )
+    @Column(name="nombreEstudiante", nullable =false )
     private String nombre;
 
-    @Column(name="emailProfesor", nullable =false, unique=true)
+    @Column(name="emailEstudiante", nullable =false, unique=true)
     private String email;
+
 }

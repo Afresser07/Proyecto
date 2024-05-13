@@ -5,13 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @ToString
-public class DtoProfesor {
-    private Long id;
-    private int cedula;
+
+public class DtoEstudiante {
+    private Long cedula;
     private String nombre;
     private String email;
 }

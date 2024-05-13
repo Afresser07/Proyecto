@@ -18,7 +18,7 @@ public class ControladorProfesor {
     @Autowired
     private OperacionesProfesor operacionesProfesor;
 
-    @GetMapping({"/profesores","/"})
+    @GetMapping({"/profesores"})
     public String listarProfesores(Model modelo) {
         modelo.addAttribute("profesores", operacionesProfesor);
         return "registroProfesor";
