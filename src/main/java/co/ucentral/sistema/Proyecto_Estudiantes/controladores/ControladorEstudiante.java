@@ -11,12 +11,16 @@ import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Estudiante;
 import co.ucentral.sistema.Proyecto_Estudiantes.operaciones.OperacionesEstudiante;
 
 
+
+
 @Controller
 public class ControladorEstudiante {
 
     @Autowired
     private OperacionesEstudiante operacionesEstudiante;
 
+    
+    
     @GetMapping("/registroEstudiante")
     public String mostrarFormularioEstudiante(Model modelo) {
         Estudiante estudiante = new Estudiante();

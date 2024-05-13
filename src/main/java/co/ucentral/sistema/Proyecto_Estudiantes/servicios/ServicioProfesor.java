@@ -26,4 +26,9 @@ public class ServicioProfesor implements OperacionesProfesor{
         return repositorioProfesor.save(profesor);
     }
 
+    @Override
+    public Profesor findByEmail(String email) {
+        return repositorioProfesor.findByEmail(email);
+    }
+
 }

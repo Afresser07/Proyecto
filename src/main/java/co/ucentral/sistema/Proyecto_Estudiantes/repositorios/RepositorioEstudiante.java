@@ -7,4 +7,6 @@ import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Estudiante;
 
 @Repository
 public interface RepositorioEstudiante extends JpaRepository<Estudiante, Integer>{
+
+    public Estudiante findByEmail(String email);
 }

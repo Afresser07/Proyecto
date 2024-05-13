@@ -6,6 +6,8 @@ import org.springframework.stereotype.Repository;
 import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Profesor;
 
 @Repository
-public interface RepositorioProfesor extends JpaRepository<Profesor, Long>{
-    
+public interface RepositorioProfesor extends JpaRepository<Profesor, Integer>{
+
+    public Profesor findByEmail(String email);
+
 }
