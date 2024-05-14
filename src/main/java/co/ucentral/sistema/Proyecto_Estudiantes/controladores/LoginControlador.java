@@ -29,7 +29,7 @@ public class LoginControlador {
     public String inicioSesion(@RequestParam String email, @RequestParam int password, Model modelo) {
         Estudiante estudiante = servicioEstudiante.findByEmail(email);
         if(estudiante!= null && estudiante.getCedula()==password){
-            return "inicioEstudiante";
+            return "redirect:/AsignaturasEstudiante";
         }
 
         Profesor profesor = servicioProfesor.findByEmail(email);

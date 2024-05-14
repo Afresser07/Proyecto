@@ -3,11 +3,13 @@ package co.ucentral.sistema.Proyecto_Estudiantes.servicios;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Actividad;
 import co.ucentral.sistema.Proyecto_Estudiantes.operaciones.OperacionesActividad;
 import co.ucentral.sistema.Proyecto_Estudiantes.repositorios.RepositorioActividad;
 
+@Service
 public class ServicioActividad implements OperacionesActividad{
 
     @Autowired

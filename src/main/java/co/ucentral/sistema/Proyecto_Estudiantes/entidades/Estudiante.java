@@ -30,5 +30,5 @@ public class Estudiante {
 
     @Column(name="emailEstudiante", nullable =false, unique=true)
     private String email;
-
+    
 }

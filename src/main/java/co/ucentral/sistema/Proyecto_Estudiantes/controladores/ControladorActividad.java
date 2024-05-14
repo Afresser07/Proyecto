@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Actividad;
 import co.ucentral.sistema.Proyecto_Estudiantes.operaciones.OperacionesActividad;
@@ -17,7 +19,13 @@ public class ControladorActividad {
     @GetMapping("/ActividadProfesor")
     public String mostrarActividadProfesor(Model modelo) {
         modelo.addAttribute("actividades", operacionesActividad);
-        return "listaActividad";
+        return "listaActividadProfesor";
+    }
+
+    @GetMapping("/ActividadEstudiante")
+    public String mostrarActividadEstudiante(Model modelo) {
+        modelo.addAttribute("actividades", operacionesActividad);
+        return "listaActividadEstudiante";
     }
     
     @GetMapping("/CrearActividad")
@@ -25,5 +33,11 @@ public class ControladorActividad {
         Actividad actividad = new Actividad();
         modelo.addAttribute("actividad", actividad);
         return "registroActividad";
+    }
+
+    @PostMapping("/CrearActividad")
+    public String guardarActividad(@ModelAttribute("Actividad")Actividad actividad) {
+        operacionesActividad.guardarActividad(actividad);
+        return "redirect:/ActividadProfesor";
     }
 }
