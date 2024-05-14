@@ -34,7 +34,7 @@ public class LoginControlador {
 
         Profesor profesor = servicioProfesor.findByEmail(email);
         if(profesor!= null && profesor.getCedula()==password){
-            return "inicioProfesor";
+            return "redirect:/AsignaturasProfesor";
         }
 
         modelo.addAttribute("error", true);
