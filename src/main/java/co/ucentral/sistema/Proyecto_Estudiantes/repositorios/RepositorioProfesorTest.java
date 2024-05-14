@@ -35,6 +35,7 @@ public class RepositorioProfesorTest {
             .periodoApertura("02/02/2024")
             .periodoCierre("02/02/2024")
             .profesor(profesor);
+            .build();
 
         Asignatura asignatura1 = repositorioAsignatura.save(asignatura);
         assertThat(asignatura1).isNotNull();
