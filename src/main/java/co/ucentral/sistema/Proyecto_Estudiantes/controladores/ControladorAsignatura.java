@@ -9,12 +9,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Asignatura;
 import co.ucentral.sistema.Proyecto_Estudiantes.operaciones.OperacionesAsignatura;
+import co.ucentral.sistema.Proyecto_Estudiantes.operaciones.OperacionesEstudiante;
 
 @Controller
 public class ControladorAsignatura {
     
     @Autowired
     private OperacionesAsignatura operacionesAsignatura;
+
+    @Autowired
+    private OperacionesEstudiante operacionesEstudiante;
 
     @GetMapping("/AsignaturasEstudiante")
     public String mostrarAsignaturasEstudiante(Model modelo) {
@@ -32,6 +36,7 @@ public class ControladorAsignatura {
     public String mostrarFormularioAsignatura(Model modelo) {
         Asignatura asignatura = new Asignatura();
         modelo.addAttribute("asignatura", asignatura);
+        modelo.addAttribute("estudiantes", operacionesEstudiante.listarTodosLosEstudiantes());
         return "registroAsignatura";
     }
     

@@ -27,7 +27,7 @@ public class ControladorEstudiante {
     @PostMapping("/registroEstudiante")
     public String guardarEstudiante(@ModelAttribute("Estudiante")Estudiante Estudiante) {
         operacionesEstudiante.guardarEstudiante(Estudiante);
-        return "redirect:/";
+        return "redirect:/AsignaturasProfesor";
     }
     
 }
