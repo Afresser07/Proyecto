@@ -1,18 +1,19 @@
 package co.ucentral.sistema.Proyecto_Estudiantes.repositorios;
 
-import static org.assertj.core.api.AssertionsForClassTypes.*;
-
+import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Calificacion;
+import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Estudiante;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
-import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Calificacion;
-import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Estudiante;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 @DataJpaTest
-public class RepositorioCalificacionTest {
+class RepositorioCalificacionTest {
     @Autowired
     RepositorioEstudiante repositorioEstudiante;
 
@@ -28,16 +29,14 @@ public class RepositorioCalificacionTest {
         Estudiante estudiante = Estudiante
                 .builder()
                 .nombre("estudiante1")
-                .codigo(4567)
                 .email("estudiante1@gmail.com")
                 .build();
 
         Calificacion calificacion = Calificacion
-            .builder()
-            .fecha("03/03/2024")
-            .nota(30)
-            .estudiante(estudiante)
-            .build();
+                .builder()
+                .nota(30)
+                .estudiante(estudiante)
+                .build();
 
         Calificacion calificacion2 = repositorioCalificacion.save(calificacion);
 
