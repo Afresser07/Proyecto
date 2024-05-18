@@ -71,7 +71,7 @@
         <div class="mx-3"><br>
             <div class="centrado"><a th:href="@{/CrearAsignatura}"><button class="button">Registrar Asignatura</button></a></div><br>
             <div class="centrado"><p>*Recuerda que debes primero registrar los estudiantes para incluirlos en tu asignatura</p></div><br><hr>
-            <div class="centrado"><h3>TUS ASIGNATURAS:</h3></div>
+            <div class="centrado"><h3>TUS ASIGNATURAS:</h3></div><br>
 
             <div class="container text-center">
                 <p th:if="${asignaturas==null}">No hay asignaturas registradas, crea una con el botón en la parte superior superior</p>
@@ -88,7 +88,7 @@
                             <td th:text="${asignatura.codigo}">Codigo</td>
                             <td th:text="${asignatura.nombre}">Nombre</td>
                             <td>
-                                <a th:href="@{/Asignatura/AgregarEstudiantes}" class="btn btn-info" style="margin-left: auto;">Agregar Estudiante</a>
+                                <a th:href="@{/Asignatura/{id}/estudiantes(id=${asignatura.codigo})}" class="btn btn-info" style="margin-left: auto;">Agregar Estudiante</a>
                                 <a th:href="@{/AgregarEstudiante}" class="btn btn-info" style="margin-left: auto;">Agregar Actividad</a>
                                 <a th:href="@{/AgregarEstudiante}" class="btn btn-info" style="margin-left: auto;">Realizar Calificación</a>
                                 <a th:href="@{/AgregarEstudiante}" class="btn btn-info" style="margin-left: auto;">Visualizar Calificaciones</a>

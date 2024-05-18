@@ -14,4 +14,6 @@ public interface OperacionesAsignatura {
 
     public Asignatura findByCodigo(int codigo);
 
+    public void agregarEstudianteAsignatura(Integer idAsignatura, List<Integer> estudianteIds);
+
 }

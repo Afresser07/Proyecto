@@ -7,7 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Asignatura;
 import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Estudiante;
@@ -49,16 +51,18 @@ public class ControladorAsignatura {
         return "redirect:/AsignaturasProfesor";
     }
 
-    @GetMapping("/Asignatura/AgregarEstudiantes")
-    public String mostrarEstudiantesParaAsignatura(Model modelo) {
+    @GetMapping("/Asignatura/{id}/estudiantes")
+    public String mostrarEstudiantesParaAsignatura(@PathVariable("id") int idAsignatura, Model modelo) {
+        Asignatura asignatura = operacionesAsignatura.findByCodigo(idAsignatura);
         List<Estudiante> estudiantes = operacionesEstudiante.listarTodosLosEstudiantes();
+        modelo.addAttribute("asignatura", asignatura);
         modelo.addAttribute("estudiantes", estudiantes);
         return "listarEstudiantes";
     }
 
-    @PostMapping("/Asignatura/AgregarEstudiantes")
-    public String agregarEstudianteAsignatura(Asignatura asignatura) {
-        operacionesAsignatura.modificarAsignatura(asignatura);
+    @PostMapping("/Asignatura/{id}/AgregarEstudiantes")
+    public String agregarEstudianteAsignatura(@RequestParam("asignaturaId") Integer idAsignatura, @RequestParam("estudianteIds") List<Integer> estudianteIds) {
+        operacionesAsignatura.agregarEstudianteAsignatura(idAsignatura,estudianteIds);
         return "redirect:/AsignaturasProfesor";
     }
     

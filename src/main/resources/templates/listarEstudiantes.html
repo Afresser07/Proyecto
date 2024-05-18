@@ -56,10 +56,11 @@
             }
         </style>
         <div class="container text-center"><br>
-            <h2>Agregar Estudiante(s) a la asignatura</h2><br>
+            <h2>Agregar Estudiante(s) a la asignatura: <span th:text="${asignatura.nombre}"></span></h2><br>
             <p>Aquí se presentan los estudiantes que están registrados hasta el momento, selecciona los que deseas en tu asignatura.</p>
         </div><br>
-        <form th:action="@{/Asignatura/AgregarEstudiantes}">
+        <form th:action="@{/Asignatura/{id}/AgregarEstudiantes(id=${asignatura.codigo})}" method="post">
+        <input type="hidden" name="asignaturaId" th:value="${asignatura.codigo}" />
         <div class="container text-center">
             <p th:if="${estudiantes==null}">No hay estudiantes registrados, registralos en la página de inicio</p>
             <table th:if="${estudiantes!=null}" class="table table-striped table-bordered">
@@ -79,7 +80,7 @@
                         <td>
 
                             <label class="cyberpunk-checkbox-label" style="color:black">
-                            <input type="checkbox" class="cyberpunk-checkbox">Agregar a la asignatura</label>
+                            <input type="checkbox" class="cyberpunk-checkbox" name="estudianteIds" th:value="${estudiante.cedula}">Agregar a la asignatura</label>
                         </td>
                     </tr>
                 </tbody>
