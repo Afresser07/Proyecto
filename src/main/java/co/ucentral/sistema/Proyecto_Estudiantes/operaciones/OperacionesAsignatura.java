@@ -11,4 +11,7 @@ public interface OperacionesAsignatura {
     public Asignatura guardarAsignatura(Asignatura asignatura);
 
     public Asignatura modificarAsignatura(Asignatura asignatura);
+
+    public Asignatura findByCodigo(int codigo);
+
 }

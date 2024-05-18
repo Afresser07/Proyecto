@@ -29,5 +29,10 @@ public class ServicioAsignatura implements OperacionesAsignatura{
     public Asignatura modificarAsignatura(Asignatura asignatura) {
         return repositorioAsignatura.save(asignatura);
     }
+
+    @Override
+    public Asignatura findByCodigo(int codigo) {
+        return repositorioAsignatura.findByCodigo(codigo);
+    }
     
 }

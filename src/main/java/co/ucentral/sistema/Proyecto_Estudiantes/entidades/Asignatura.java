@@ -2,6 +2,8 @@ package co.ucentral.sistema.Proyecto_Estudiantes.entidades;
 
 import java.util.Collection;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
@@ -46,7 +48,7 @@ public class Asignatura {
         name="estudiantes_asignaturas",
         joinColumns = @JoinColumn(name="asignatura_id",referencedColumnName="codigo"),
         inverseJoinColumns = @JoinColumn(name = "estudiante_id",referencedColumnName = "cedulaEstudiante"))
-    private Collection<Estudiante> estudiantes;
+    private Set<Estudiante> estudiantes=new HashSet<>();
 
     @ManyToOne
     @JoinColumn(name="profesor_id")

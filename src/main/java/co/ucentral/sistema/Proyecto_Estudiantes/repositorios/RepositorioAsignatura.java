@@ -8,5 +8,5 @@ import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Asignatura;
 @Repository
 public interface RepositorioAsignatura extends JpaRepository<Asignatura,Integer>{
 
-    
+    public Asignatura findByCodigo(int codigo);
 }
