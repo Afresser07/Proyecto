@@ -9,6 +9,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -17,7 +18,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Table(name = "estudiantes")
-
+@Builder
 public class Estudiante {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_ESTU_REL")
@@ -30,5 +31,5 @@ public class Estudiante {
 
     @Column(name="emailEstudiante", nullable =false, unique=true)
     private String email;
-
+    
 }

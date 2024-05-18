@@ -8,16 +8,12 @@ import org.springframework.stereotype.Service;
 import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Estudiante;
 import co.ucentral.sistema.Proyecto_Estudiantes.operaciones.OperacionesEstudiante;
 import co.ucentral.sistema.Proyecto_Estudiantes.repositorios.RepositorioEstudiante;
-import co.ucentral.sistema.Proyecto_Estudiantes.repositorios.RepositorioProfesor;
 
 @Service
 public class ServicioEstudiante implements OperacionesEstudiante{
 
     @Autowired
     private RepositorioEstudiante repositorioEstudiante;
-
-    @Autowired
-    private RepositorioProfesor repositorioProfesor;
 
     @Override
     public List<Estudiante> listarTodosLosEstudiantes() {
