@@ -1,7 +1,6 @@
 package co.ucentral.sistema.Proyecto_Estudiantes.entidades;
 
 import java.util.Collection;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -36,12 +35,6 @@ public class Asignatura {
 
     @Column(name="nombre", nullable =false)
     private String nombre;
-
-    @Column(name="periodoApertura", nullable =false)
-    private Date periodoApertura;
-
-    @Column(name="periodoCierre", nullable =false)
-    private Date periodoCierre;
 
     @ManyToMany(fetch=FetchType.EAGER,cascade = CascadeType.ALL)
     @JoinTable(

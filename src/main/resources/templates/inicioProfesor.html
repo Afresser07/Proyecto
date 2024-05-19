@@ -65,12 +65,22 @@
         <li class="nav-item">
             <a class="nav-link" th:href="@{/registroEstudiante}">Registrar Estudiante</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/EstablecerFechas}">Establecer fechas</a>
+        </li>
     </ul>
 
-    <div class="container">
+    <div class="container text-center">
         <div class="mx-3"><br>
             <div class="centrado"><a th:href="@{/CrearAsignatura}"><button class="button">Registrar Asignatura</button></a></div><br>
-            <div class="centrado"><p>*Recuerda que debes primero registrar los estudiantes para incluirlos en tu asignatura</p></div><br><hr>
+            <div class="centrado"><p>*Recuerda que debes primero registrar los estudiantes para incluirlos en tu asignatura y establece tus fechas para los cortes de tus asignaturas.</p></div><br>
+
+            <form th:action="@{/GuardarFecha}" method="post">
+                <label for="fecha">Ingresa la fecha en la que te encuentras:</label>
+                <input type="date" name="fecha" id="fecha" required>
+                <button type="submit" class="btn btn-primary">Guardar Fecha</button>
+            </form><br><hr>
+            
             <div class="centrado"><h3>TUS ASIGNATURAS:</h3></div><br>
 
             <div class="container text-center">
@@ -89,7 +99,7 @@
                             <td th:text="${asignatura.nombre}">Nombre</td>
                             <td>
                                 <a th:href="@{/Asignatura/{id}/estudiantes(id=${asignatura.codigo})}" class="btn btn-info" style="margin-left: auto;">Agregar Estudiante</a>
-                                <a th:href="@{/AgregarEstudiante}" class="btn btn-info" style="margin-left: auto;">Agregar Actividad</a>
+                                <a th:href="@{/CrearActividad}" class="btn btn-info" style="margin-left: auto;">Agregar Actividad</a>
                                 <a th:href="@{/AgregarEstudiante}" class="btn btn-info" style="margin-left: auto;">Realizar Calificación</a>
                                 <a th:href="@{/AgregarEstudiante}" class="btn btn-info" style="margin-left: auto;">Visualizar Calificaciones</a>
                             </td>

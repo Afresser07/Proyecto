@@ -12,10 +12,24 @@
         margin: 0 auto; /* Remove default margin and center horizontally */
         }
     </style>
+
+    <ul class="nav justify-content-center">
+        <li class="nav-item">
+            <a class="nav-link active" aria-current="page" th:href="@{/AsignaturasProfesor}">Inicio</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/registroEstudiante}">Registrar Estudiante</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" th:href="@{/EstablecerFechas}">Establecer fechas</a>
+        </li>
+    </ul>
+
+
     <nav class="navbar navbar-dark bg-dark">
     <span class="navbar-brand mb-0 h1 text-center">Registro del Estudiante</span>
     </nav>
-
+    
     <div class="container">
         <div class="card my-5">
             <style>
