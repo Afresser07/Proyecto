@@ -1,6 +1,7 @@
 package co.ucentral.sistema.Proyecto_Estudiantes.entidades;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Collection;
 
 import javax.persistence.GeneratedValue;
@@ -39,4 +40,5 @@ public class Profesor implements Serializable{
     @OneToMany(mappedBy = "profesor")
     private Collection<Asignatura> asignaturas;
 
+    private LocalDate fechaActual;
 }

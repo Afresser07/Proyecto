@@ -1,1 +1,149 @@
-registro actividad
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="utf-8">
+        <title>Registro Actividad</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+        <style>
+            .centrado {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+                }
+            .form {
+            --input-focus: #2d8cf0;
+            --font-color: #323232;
+            --font-color-sub: #666;
+            --bg-color: beige;
+            --main-color: black;
+            padding: 20px;
+            background: lightblue;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 20px;
+            border-radius: 5px;
+            border: 2px solid var(--main-color);
+            box-shadow: 4px 4px var(--main-color);
+            }
+
+            .title {
+            color: var(--font-color);
+            font-weight: 900;
+            font-size: 20px;
+            margin-bottom: 25px;
+            }
+
+            .title span {
+            color: var(--font-color-sub);
+            font-weight: 600;
+            font-size: 17px;
+            }
+
+            .input {
+            width: 250px;
+            height: 40px;
+            border-radius: 5px;
+            border: 2px solid var(--main-color);
+            background-color: var(--bg-color);
+            box-shadow: 4px 4px var(--main-color);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--font-color);
+            padding: 5px 10px;
+            outline: none;
+            }
+
+            .input::placeholder {
+            color: var(--font-color-sub);
+            opacity: 0.8;
+            }
+
+            .input:focus {
+            border: 2px solid var(--input-focus);
+            }
+
+            .login-with {
+            display: flex;
+            gap: 20px;
+            }
+
+            .button-log {
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            border-radius: 100%;
+            border: 2px solid var(--main-color);
+            background-color: var(--bg-color);
+            box-shadow: 4px 4px var(--main-color);
+            color: var(--font-color);
+            font-size: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            }
+
+            .icon {
+            width: 24px;
+            height: 24px;
+            fill: var(--main-color);
+            }
+
+            .button-log:active, .button-confirm:active {
+            box-shadow: 0px 0px var(--main-color);
+            transform: translate(3px, 3px);
+            }
+
+            .button-confirm {
+            margin: 50px auto 0 auto;
+            width: 120px;
+            height: 40px;
+            border-radius: 5px;
+            border: 2px solid var(--main-color);
+            background-color: var(--bg-color);
+            box-shadow: 4px 4px var(--main-color);
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--font-color);
+            cursor: pointer;
+            }
+
+        </style>
+
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" th:href="@{/AsignaturasProfesor}">Inicio</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/registroEstudiante}">Registrar Estudiante</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/EstablecerFechas}">Establecer fechas</a>
+            </li>
+        </ul><br>
+
+        <div class="container">
+            <div class="card my-5">
+                <div class="centrado">
+                    <form class="form" th:action="@{/CrearActividad}" th:object="${actividad}" method="post">
+                        <div class="title">Registrar actividad</div>
+                        <input class="input" name="nombreActividad" placeholder="Nombre de la asignatura" type="nombre">
+                        <input class="input" name="puntos" placeholder="Puntos que vas a quitar" type="puntos">
+                        <input type="date" class="form-control" th:value="${fecha}" id="fecha" name="fecha" required>
+                        <button class="button-confirm">Crear →</button>
+                        </form>
+                </div>
+                
+            </div>
+        </div>
+        
+    </body>
+</html>
