@@ -99,7 +99,7 @@
                             <td th:text="${asignatura.nombre}">Nombre</td>
                             <td>
                                 <a th:href="@{/Asignatura/{id}/estudiantes(id=${asignatura.codigo})}" class="btn btn-info" style="margin-left: auto;">Agregar Estudiante</a>
-                                <a th:href="@{/CrearActividad}" class="btn btn-info" style="margin-left: auto;">Agregar Actividad</a>
+                                <a th:href="@{/CrearActividad(asignaturaId=${asignatura.codigo})}" class="btn btn-info" style="margin-left: auto;">Agregar Actividad</a>
                                 <a th:href="@{/AgregarEstudiante}" class="btn btn-info" style="margin-left: auto;">Realizar Calificación</a>
                                 <a th:href="@{/AgregarEstudiante}" class="btn btn-info" style="margin-left: auto;">Visualizar Calificaciones</a>
                             </td>

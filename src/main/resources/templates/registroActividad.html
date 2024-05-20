@@ -137,7 +137,7 @@
                         <div class="title">Registrar actividad</div>
                         <input class="input" name="nombreActividad" placeholder="Nombre de la asignatura" type="nombre">
                         <input class="input" name="puntos" placeholder="Puntos que vas a quitar" type="puntos">
-                        <input type="date" class="form-control" th:value="${fecha}" id="fecha" name="fecha" required>
+                        <input type="hidden" name="asignaturaId" th:value="${asignaturaId}">
                         <button class="button-confirm">Crear →</button>
                         </form>
                 </div>

@@ -31,21 +31,18 @@ public class Actividad {
 
     @Column(name="nombre")
     private String nombre;
-
-    @Column(name="fecha")
-    private LocalDate fecha;
     
     @Column(name="puntos")
     private int puntos;
-
-    @ManyToOne
-    @JoinColumn(name="actividad_id")
-    private Asignatura asignatura;
 
     @OneToMany(mappedBy = "actividad")
     private Collection<Calificacion> calificaciones;
 
     @ManyToOne
-    @JoinColumn(name="corte_id", nullable = false)
+    @JoinColumn(name="corte_id")
     private Corte corte;
+
+    private LocalDate fecha;
+
+    private Integer asignaturaId;
 }
