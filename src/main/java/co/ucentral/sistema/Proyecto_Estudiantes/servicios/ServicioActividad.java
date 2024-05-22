@@ -34,4 +34,9 @@ public class ServicioActividad implements OperacionesActividad{
     public Actividad findByCodigo(int codigo) {
         return repositorioActividad.findByCodigo(codigo);
     }
+
+    @Override
+    public List<Actividad> findByAsignaturaId(Integer asignaturaId) {
+        return repositorioActividad.findByAsignaturaId(asignaturaId);
+    }
 }

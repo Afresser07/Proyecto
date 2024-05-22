@@ -34,4 +34,9 @@ public class ServicioEstudiante implements OperacionesEstudiante{
     public Estudiante findByCedula(int cedula) {
         return repositorioEstudiante.findByCedula(cedula);
     }
+
+    @Override
+    public List<Estudiante> findByAsignaturasCodigo(Integer asignaturaId) {
+        return repositorioEstudiante.findByAsignaturasCodigo(asignaturaId);
+    }
 }

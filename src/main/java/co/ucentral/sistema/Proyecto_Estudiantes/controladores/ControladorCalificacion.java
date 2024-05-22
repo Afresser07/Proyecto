@@ -1,5 +1,7 @@
 package co.ucentral.sistema.Proyecto_Estudiantes.controladores;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,14 +41,17 @@ public class ControladorCalificacion {
     }
 
     @GetMapping("/CrearCalificacion")
-    public String mostrarFormularioCalificacion(Model modelo) {
-        modelo.addAttribute("actividades", operacionesActividad.listarTodasLosActividades());
-        modelo.addAttribute("estudiantes", operacionesEstudiante.listarTodosLosEstudiantes());
-        return "registroCalificacion";
+    public String mostrarFormularioCalificacion(@RequestParam Integer asignaturaId, Model model) {
+        List<Actividad> actividades = operacionesActividad.findByAsignaturaId(asignaturaId);
+        List<Estudiante> estudiantes = operacionesEstudiante.findByAsignaturasCodigo(asignaturaId);
+        model.addAttribute("actividades", actividades);
+        model.addAttribute("estudiantes", estudiantes);
+        model.addAttribute("asignaturaId", asignaturaId);
+        return "registroCalificaciones";
     }
 
     @PostMapping("/CrearCalificacion")
-    public String guardarCalificacion(@RequestParam Integer actividadId, @RequestParam Integer estudianteId, @RequestParam Integer valor) {
+    public String guardarCalificacion(@RequestParam Integer actividadId, @RequestParam Integer estudianteId, @RequestParam Integer valor, @RequestParam Integer asignaturaId) {
         Actividad actividad = operacionesActividad.findByCodigo(actividadId);
         Estudiante estudiante = operacionesEstudiante.findByCedula(estudianteId);
 
@@ -56,6 +61,6 @@ public class ControladorCalificacion {
         calificacion.setNota(valor);
         
         operacionesCalificacion.guardarCalificacion(calificacion);
-        return "redirect:/CalificacionProfesor";
+        return "redirect:/AsignaturasProfesor";
     }
 }

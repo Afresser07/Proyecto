@@ -13,4 +13,6 @@ public interface OperacionesEstudiante{
     public Estudiante guardarEstudiante(Estudiante estudiante);
 
     public Estudiante findByCedula(int cedula);
+
+    public List<Estudiante> findByAsignaturasCodigo(Integer asignaturaId);
 }
