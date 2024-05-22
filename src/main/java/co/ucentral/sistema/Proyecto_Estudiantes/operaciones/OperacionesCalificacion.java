@@ -11,5 +11,6 @@ public interface OperacionesCalificacion {
     public Calificacion guardarCalificacion(Calificacion Calificacion);
 
     public Calificacion modificarCalificacion(Calificacion Calificacion);
-    
+
+    public Calificacion findByCodigo(int codigo);
 }

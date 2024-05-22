@@ -1,11 +1,14 @@
 package co.ucentral.sistema.Proyecto_Estudiantes.entidades;
 
+import java.util.List;
+
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -32,4 +35,6 @@ public class Estudiante {
     @Column(name="emailEstudiante", nullable =false, unique=true)
     private String email;
     
+    @OneToMany(mappedBy = "estudiante")
+    private List<Calificacion> calificaciones;
 }

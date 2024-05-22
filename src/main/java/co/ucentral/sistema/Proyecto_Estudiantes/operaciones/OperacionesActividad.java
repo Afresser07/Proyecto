@@ -12,4 +12,5 @@ public interface OperacionesActividad {
 
     public Actividad modificarActividad(Actividad actividad);
     
+    public Actividad findByCodigo(int codigo);
 }

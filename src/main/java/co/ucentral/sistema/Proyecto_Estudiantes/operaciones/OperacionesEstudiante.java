@@ -11,4 +11,6 @@ public interface OperacionesEstudiante{
     public List<Estudiante> listarTodosLosEstudiantes();
 
     public Estudiante guardarEstudiante(Estudiante estudiante);
+
+    public Estudiante findByCedula(int cedula);
 }

@@ -9,4 +9,6 @@ import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Estudiante;
 public interface RepositorioEstudiante extends JpaRepository<Estudiante, Integer>{
 
     public Estudiante findByEmail(String email);
+
+    public Estudiante findByCedula(int cedula);
 }
