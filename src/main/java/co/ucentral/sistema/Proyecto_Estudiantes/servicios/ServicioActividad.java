@@ -30,4 +30,13 @@ public class ServicioActividad implements OperacionesActividad{
         return repositorioActividad.save(actividad);
     }
     
+    @Override
+    public Actividad findByCodigo(int codigo) {
+        return repositorioActividad.findByCodigo(codigo);
+    }
+
+    @Override
+    public List<Actividad> findByAsignaturaId(Integer asignaturaId) {
+        return repositorioActividad.findByAsignaturaId(asignaturaId);
+    }
 }

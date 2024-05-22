@@ -12,4 +12,7 @@ public interface OperacionesActividad {
 
     public Actividad modificarActividad(Actividad actividad);
     
+    public Actividad findByCodigo(int codigo);
+
+    public List<Actividad> findByAsignaturaId(Integer asignaturaId);
 }

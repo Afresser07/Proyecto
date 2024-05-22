@@ -8,5 +8,5 @@ import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Calificacion;
 @Repository
 public interface RepositorioCalificacion extends JpaRepository<Calificacion,Integer>{
 
-    
+    public Calificacion findByCodigo(int codigo);
 }

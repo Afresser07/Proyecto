@@ -29,5 +29,10 @@ public class ServicioCalificacion implements OperacionesCalificacion{
     public Calificacion modificarCalificacion(Calificacion calificacion) {
         return repositorioCalificacion.save(calificacion);
     }
+
+    @Override
+    public Calificacion findByCodigo(int codigo) {
+        return repositorioCalificacion.findByCodigo(codigo);
+    }
     
 }

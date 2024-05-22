@@ -1,7 +1,6 @@
 package co.ucentral.sistema.Proyecto_Estudiantes.controladores;
 
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -38,9 +37,12 @@ public class ControladorActividad {
     }
     
     @GetMapping("/CrearActividad")
-    public String mostrarFormularioActividad(HttpSession session,Model modelo) {
-        
-        modelo.addAttribute("actividad", new Actividad());
+    public String mostrarFormularioActividad(@RequestParam Long asignaturaId, HttpSession session, Model modelo) {
+        LocalDate fechaActual = (LocalDate) session.getAttribute("fechaActual");
+        Corte corte = operacionesCorte.obtenerCortePorFecha(fechaActual);
+        modelo.addAttribute("corte", corte);
+        modelo.addAttribute("fechaActividad", fechaActual);
+        modelo.addAttribute("asignaturaId", asignaturaId);
         return "registroActividad";
     }
 
@@ -48,31 +50,20 @@ public class ControladorActividad {
     @PostMapping("/CrearActividad")
     public String crearActividad(@RequestParam String nombreActividad,
                                 @RequestParam int puntos,
-                                @RequestParam String fecha,
-                                HttpSession session, Model model) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
-        LocalDate fechaActividad = LocalDate.parse(fecha, formatter);
-
-        LocalDate fechaActual = (LocalDate) session.getAttribute("fechaActual");
-        if (fechaActual == null) {
-            model.addAttribute("error", "No se ha ingresado una fecha actual válida.");
-            return "redirect:/AsignaturasProfesor";
-        }
-
-        Corte corteActual;
-        try {
-            corteActual = operacionesCorte.obtenerCorteFecha(fechaActual);
-        } catch (IllegalArgumentException e) {
-            model.addAttribute("error", e.getMessage());
-            return "redirect:/AsignaturasProfesor";
-        }
-
-        Actividad actividad = new Actividad();
-        actividad.setNombre(nombreActividad);
-        actividad.setPuntos(puntos);
-        actividad.setCorte(corteActual);
-
-        operacionesActividad.guardarActividad(actividad);
+                                @RequestParam Integer asignaturaId,
+                                @RequestParam LocalDate fechaLimite,
+                                HttpSession session) {
+            
+            Corte corte = operacionesCorte.obtenerCortePorFecha(fechaLimite);
+    
+            Actividad nuevaActividad = new Actividad();
+            nuevaActividad.setNombre(nombreActividad);
+            nuevaActividad.setFecha(fechaLimite);
+            nuevaActividad.setPuntos(puntos);
+            nuevaActividad.setCorte(corte);
+            nuevaActividad.setAsignaturaId(asignaturaId);
+    
+            operacionesActividad.guardarActividad(nuevaActividad);
 
         return "redirect:/AsignaturasProfesor";
     }

@@ -29,4 +29,14 @@ public class ServicioEstudiante implements OperacionesEstudiante{
     public Estudiante findByEmail(String email) {
         return repositorioEstudiante.findByEmail(email);
     }
+
+    @Override
+    public Estudiante findByCedula(int cedula) {
+        return repositorioEstudiante.findByCedula(cedula);
+    }
+
+    @Override
+    public List<Estudiante> findByAsignaturasCodigo(Integer asignaturaId) {
+        return repositorioEstudiante.findByAsignaturasCodigo(asignaturaId);
+    }
 }

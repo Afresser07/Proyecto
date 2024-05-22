@@ -19,4 +19,6 @@ public interface OperacionesCorte {
     public Corte obtenerCorteFecha(LocalDate fecha);
 
     public void establecerFechasCorte(Integer corteId, LocalDate fechaApertura, LocalDate fechaCierre);
+
+    public Corte obtenerCortePorFecha(LocalDate fecha);
 }

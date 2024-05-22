@@ -67,4 +67,8 @@ public class ServicioCorte implements OperacionesCorte{
         repositorioCorte.save(corte);
     }
     
+    @Override
+    public Corte obtenerCortePorFecha(LocalDate fecha) {
+        return repositorioCorte.findByFechaActual(fecha);
+    }
 }
