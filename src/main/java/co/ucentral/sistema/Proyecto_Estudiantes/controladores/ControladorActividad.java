@@ -51,13 +51,14 @@ public class ControladorActividad {
     public String crearActividad(@RequestParam String nombreActividad,
                                 @RequestParam int puntos,
                                 @RequestParam Integer asignaturaId,
+                                @RequestParam LocalDate fechaLimite,
                                 HttpSession session) {
-            LocalDate fechaActividad = (LocalDate) session.getAttribute("fechaActual");
-            Corte corte = operacionesCorte.obtenerCortePorFecha(fechaActividad);
+            
+            Corte corte = operacionesCorte.obtenerCortePorFecha(fechaLimite);
     
             Actividad nuevaActividad = new Actividad();
             nuevaActividad.setNombre(nombreActividad);
-            nuevaActividad.setFecha(fechaActividad);
+            nuevaActividad.setFecha(fechaLimite);
             nuevaActividad.setPuntos(puntos);
             nuevaActividad.setCorte(corte);
             nuevaActividad.setAsignaturaId(asignaturaId);

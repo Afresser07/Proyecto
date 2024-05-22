@@ -43,6 +43,6 @@ public class Actividad {
     private Corte corte;
 
     private LocalDate fecha;
-
+    
     private Integer asignaturaId;
 }
