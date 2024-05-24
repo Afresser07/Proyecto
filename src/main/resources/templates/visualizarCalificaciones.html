@@ -38,6 +38,7 @@
                     <tr>
                         <th>Estudiante</th>
                         <th th:each="actividad : ${asignatura.actividades}" th:text="${actividad.nombre}">Actividad</th>
+                        <th>Nota Final</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,6 +49,7 @@
                                 th:if="${calificacion.estudiante.cedula == estudiante.cedula} and ${calificacion.actividad.codigo == actividad.codigo}"
                                 th:text="${calificacion.nota}"></span>
                         </td>
+                        <td th:text="${10-operaciones.sumarPuntosPerdidos(estudiante,calificaciones)}"></td>
                     </tr>
                 </tbody>
             </table>
