@@ -34,6 +34,11 @@ public class Corte {
 
     @OneToMany(mappedBy="corte")
     private List<Actividad> actividades;
+    
+
+    @OneToMany(mappedBy = "corte")
+    private List<Actividad> actividades2;
+
 
     public void addActividad(Actividad actividad) {
         actividades.add(actividad);

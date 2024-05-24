@@ -13,4 +13,6 @@ public interface OperacionesCalificacion {
     public Calificacion modificarCalificacion(Calificacion Calificacion);
 
     public Calificacion findByCodigo(int codigo);
+
+    public List<Calificacion> findByAsignaturaIdAndCorteId(Integer asignaturaId, Integer corteId);
 }

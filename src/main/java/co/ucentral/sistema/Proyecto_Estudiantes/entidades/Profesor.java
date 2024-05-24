@@ -28,7 +28,7 @@ public class Profesor implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "SEQ_PROF_REL")
     @SequenceGenerator(name = "SEQ_PROF_REL", sequenceName = "SEQ_PROF_REL", allocationSize = 1)
-    @Column(name="cedulaEstudiante", nullable =false )
+    @Column(name="cedulaProfesor", nullable =false )
     private int cedula;
 
     @Column(name="nombreProfesor", nullable =false )

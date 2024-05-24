@@ -101,7 +101,8 @@
                                 <a th:href="@{/Asignatura/{id}/estudiantes(id=${asignatura.codigo})}" class="btn btn-info" style="margin-left: auto;">Agregar Estudiante</a>
                                 <a th:href="@{/CrearActividad(asignaturaId=${asignatura.codigo})}" class="btn btn-info" style="margin-left: auto;">Agregar Actividad</a>
                                 <a th:href="@{/CrearCalificacion(asignaturaId=${asignatura.codigo})}" class="btn btn-info" style="margin-left: auto;">Realizar Calificación</a>
-                                <a th:href="@{/CalificacionProfesor}" class="btn btn-info" style="margin-left: auto;">Visualizar Calificaciones</a>
+                                <a th:href="@{/CalificacionProfesor/{asignaturaId}(asignaturaId=${asignatura.codigo})}" class="btn btn-info" style="margin-left: auto;">Visualizar Calificaciones</a>
+
                             </td>
                         </tr>
                     </tbody>

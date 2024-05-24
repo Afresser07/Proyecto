@@ -1,6 +1,7 @@
 package co.ucentral.sistema.Proyecto_Estudiantes.entidades;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -14,6 +15,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -44,4 +46,10 @@ public class Asignatura {
     @ManyToOne
     @JoinColumn(name="profesor_id")
     private Profesor profesor;
+
+    @OneToMany(mappedBy = "asignaturaId")
+    private List<Calificacion> calificaciones;
+
+    @OneToMany(mappedBy = "asignatura")
+    private List<Actividad> actividades;
 }

@@ -35,4 +35,8 @@ public class Calificacion {
     @ManyToOne
     @JoinColumn(name="estudiante_id")
     private Estudiante estudiante;
+
+    @ManyToOne
+    @JoinColumn(name="asignatura_id")
+    private Asignatura asignaturaId;
 }

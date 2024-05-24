@@ -34,5 +34,10 @@ public class ServicioCalificacion implements OperacionesCalificacion{
     public Calificacion findByCodigo(int codigo) {
         return repositorioCalificacion.findByCodigo(codigo);
     }
+
+    @Override
+    public List<Calificacion> findByAsignaturaIdAndCorteId(Integer asignaturaId, Integer corteId) {
+        return repositorioCalificacion.findByAsignaturaIdAndCorteId(asignaturaId, corteId);
+    }
     
 }
