@@ -1,7 +1,7 @@
 package co.ucentral.sistema.Proyecto_Estudiantes.entidades;
 
 import java.time.LocalDate;
-import java.util.Collection;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -36,13 +36,15 @@ public class Actividad {
     private int puntos;
 
     @OneToMany(mappedBy = "actividad")
-    private Collection<Calificacion> calificaciones;
+    private List<Calificacion> calificaciones;
 
     @ManyToOne
     @JoinColumn(name="corte_id")
     private Corte corte;
 
+    @ManyToOne
+    @JoinColumn(name = "asignaturaId")
+    private Asignatura asignatura;
+
     private LocalDate fecha;
-    
-    private Integer asignaturaId;
 }

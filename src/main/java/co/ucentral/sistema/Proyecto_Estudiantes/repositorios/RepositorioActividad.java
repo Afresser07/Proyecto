@@ -12,5 +12,5 @@ public interface RepositorioActividad extends JpaRepository<Actividad,Integer>{
 
     public Actividad findByCodigo(int codigo);
 
-    List<Actividad> findByAsignaturaId(Integer asignaturaId);
+    List<Actividad> findByAsignaturaCodigo(Integer asignaturaId);
 }
