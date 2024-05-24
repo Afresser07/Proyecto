@@ -17,4 +17,7 @@ public interface RepositorioCalificacion extends JpaRepository<Calificacion,Inte
     @Query("SELECT c FROM Calificacion c WHERE c.actividad.asignatura.codigo = :asignaturaId AND c.actividad.corte.codigo = :corteId")
     List<Calificacion> findByAsignaturaIdAndCorteId(@Param("asignaturaId") int asignaturaId, @Param("corteId") int corteId);
 
+    @Query("SELECT c FROM Calificacion c WHERE c.estudiante.cedula = :estudianteId AND c.actividad.asignatura.codigo = :asignaturaId")
+    List<Calificacion> findByEstudianteAndAsignatura(@Param("estudianteId") Integer estudianteId, @Param("asignaturaId") Integer asignaturaId);
+
 }
