@@ -11,6 +11,7 @@ import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Estudiante;
 import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Profesor;
 import co.ucentral.sistema.Proyecto_Estudiantes.servicios.ServicioEstudiante;
 import co.ucentral.sistema.Proyecto_Estudiantes.servicios.ServicioProfesor;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class LoginControlador {
@@ -26,14 +27,16 @@ public class LoginControlador {
     }
 
     @PostMapping("/")
-    public String inicioSesion(@RequestParam String email, @RequestParam int password, Model modelo) {
+    public String inicioSesion(@RequestParam String email, @RequestParam int password, HttpSession session, Model modelo) {
         Estudiante estudiante = servicioEstudiante.findByEmail(email);
         if(estudiante!= null && estudiante.getCedula()==password){
+            session.setAttribute("estudianteId", estudiante.getCedula());
             return "redirect:/AsignaturasEstudiante";
         }
 
         Profesor profesor = servicioProfesor.findByEmail(email);
         if(profesor!= null && profesor.getCedula()==password){
+            session.setAttribute("profesorId", profesor.getCedula());
             return "redirect:/AsignaturasProfesor";
         }
 

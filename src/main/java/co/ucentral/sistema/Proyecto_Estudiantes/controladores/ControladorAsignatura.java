@@ -15,6 +15,7 @@ import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Asignatura;
 import co.ucentral.sistema.Proyecto_Estudiantes.entidades.Estudiante;
 import co.ucentral.sistema.Proyecto_Estudiantes.operaciones.OperacionesAsignatura;
 import co.ucentral.sistema.Proyecto_Estudiantes.operaciones.OperacionesEstudiante;
+import jakarta.servlet.http.HttpSession;
 
 
 @Controller
@@ -27,8 +28,16 @@ public class ControladorAsignatura {
     private OperacionesEstudiante operacionesEstudiante;
 
     @GetMapping("/AsignaturasEstudiante")
-    public String mostrarAsignaturasEstudiante(Model modelo) {
-        modelo.addAttribute("asignaturas", operacionesAsignatura);
+    public String mostrarAsignaturasEstudiante(Model modelo, HttpSession session) {
+        Integer estudianteId = (Integer) session.getAttribute("estudianteId");
+        if (estudianteId == null) {
+            modelo.addAttribute("error", "El estudiante no existe.");
+            return "redirect:/";
+        }
+        Estudiante estudiante = operacionesEstudiante.findByCedula(estudianteId);
+        List<Asignatura> asignaturas = estudiante.getAsignaturas();
+        modelo.addAttribute("asignaturas", asignaturas);
+        modelo.addAttribute("estudianteId", estudianteId);
         return "inicioEstudiante";
     }
 

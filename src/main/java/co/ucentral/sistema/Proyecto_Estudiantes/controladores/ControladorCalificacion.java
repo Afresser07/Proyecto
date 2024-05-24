@@ -63,12 +63,9 @@ public class ControladorCalificacion {
     public String mostrarFormularioCalificacion(@RequestParam Integer asignaturaId, Model model) {
         List<Actividad> actividades = operacionesActividad.findByAsignaturaId(asignaturaId);
         List<Estudiante> estudiantes = operacionesEstudiante.findByAsignaturasCodigo(asignaturaId);
-        
         model.addAttribute("actividades", actividades);
         model.addAttribute("estudiantes", estudiantes);
-        
         model.addAttribute("asignaturaId", asignaturaId);
-        
         return "registroCalificaciones";
     }
 
@@ -108,4 +105,18 @@ public class ControladorCalificacion {
         return "redirect:/AsignaturasProfesor";
     }
 
+
+    @GetMapping("/calificaciones")
+    public String verCalificacionesEstudiante(@RequestParam("estudianteId") Integer estudianteId, @RequestParam("asignaturaId") Integer asignaturaId, Model model) {
+        Estudiante estudiante = operacionesEstudiante.findByCedula(estudianteId);
+        Asignatura asignatura = operacionesAsignatura.findByCodigo(asignaturaId);
+        
+        List<Calificacion> calificaciones = repositorioCalificacion.findByEstudianteAndAsignatura(estudianteId, asignaturaId);
+        
+        model.addAttribute("calificaciones", calificaciones);
+        model.addAttribute("asignatura", asignatura);
+        model.addAttribute("estudiante", estudiante);
+
+        return "calificacionEstudiante";
+    }
 }
