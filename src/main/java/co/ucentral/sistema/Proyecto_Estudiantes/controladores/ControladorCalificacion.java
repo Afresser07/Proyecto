@@ -106,7 +106,7 @@ public class ControladorCalificacion {
     }
 
 
-    @GetMapping("/calificaciones")
+    @GetMapping("/estudiante/calificaciones{estudianteId}")
     public String verCalificacionesEstudiante(@RequestParam("estudianteId") Integer estudianteId, @RequestParam("asignaturaId") Integer asignaturaId, Model model) {
         Estudiante estudiante = operacionesEstudiante.findByCedula(estudianteId);
         Asignatura asignatura = operacionesAsignatura.findByCodigo(asignaturaId);
