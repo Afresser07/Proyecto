@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+    <style>
+        .centrado {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5;
+                }
+    </style>
+
+
+    <div class="centrado">
+        <div class="container text-center">
+            <h2>Registrar Calificación</h2><br>
+            <div class="col-12 col-md-6 mx-auto">
+                <form th:action="@{/CrearCalificacion}" method="post">
+                    <input type="hidden" name="asignaturaId" th:value="${asignaturaId}">
+                    <div class="form-group">
+                        <label for="actividad">Actividad</label>
+                        <select name="actividadId" id="actividad" class="form-control" required>
+                            <option th:each="actividad : ${actividades}" th:value="${actividad.codigo}" th:text="${actividad.nombre}"></option>
+                        </select><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="estudiantes">Estudiante</label>
+                        <select name="estudianteId" id="estudiante" class="form-control" required>
+                            <option th:each="estudiante : ${estudiantes}" th:value="${estudiante.cedula}" th:text="${estudiante.nombre}"></option>
+                        </select><br>
+                    </div>
+                    <div class="form-group">
+                        <label for="nota">Puntos a cobrar:</label>
+                        <input type="number" name="nota" id="nota" class="form-control" required>
+                    </div><br>
+                    <button type="submit" class="btn btn-primary">Guardar Calificación</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
